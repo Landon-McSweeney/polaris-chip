@@ -1,22 +1,15 @@
 import { LitElement, html, css } from 'lit';
 
-/**
- * Now it's your turn. Here's what we need to try and do:
- * 1. Get you HTML from your card working in here 
- * 2. Get your CSS rescoped as needed to work here
- */
-
 export class MyCard extends LitElement {
-
   static get tag() {
     return 'my-card';
   }
 
   constructor() {
     super();
-    this.title = "#";
-    this.image = "#";
-    this.link = "#"; 
+    this.title = "Volkswagen";
+    this.image = "https://logos-world.net/wp-content/uploads/2021/04/Volkswagen-Logo-2000-2012.png";
+    this.link = "https://www.vw.com/";
     this.fancy = false;
   }
 
@@ -25,108 +18,71 @@ export class MyCard extends LitElement {
       :host {
         display: block;
       }
-
-      :host([fancy]) .card{
-        display: block;
-        background-color: blue;
-        color: white
-      }
-
-      .card.toggled {
-        background-color: red;
-        color: blue;
-      }
       .card {
-        background-color: #4f2a06;
-        width: 400px;
+        background-color: #f5f5f5;
+        width: 300px;
         text-align: center;
+        border: 2px solid black;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .card.fancy {
+        background-color: gold;
+        color: black;
+        border-color: darkblue;
       }
       .cardheader {
-        color: yellow;
-        margin: 10px 0px 10px 0px;
-        font-size: 40px;
-        font-family: "Times New Roman", Times, serif;
-      }
-      p {
-        color: yellow;
-        margin: 10px 25px 10px 25px;
-        font-family: "Times New Roman", Times, serif;
+        font-size: 24px;
+        font-weight: bold;
       }
       img {
-        width: 200px;
-        border: 4px solid yellow;
+        width: 100%;
+        max-width: 200px;
+        height: auto;
       }
       .btn {
-        color: #4f2a06;
-        background-color: white;
-        font-size: 15px;
-        margin: 0px 0px 5px 0px;
-      }
-      .btn:focus,
-      .btn:hover {
         background-color: blue;
         color: white;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
       }
-      details summary {
-      text-align: center;
-      font-size: 20px;
-      padding: 8px 0;
-      font-family: "Times New Roman", Times, serif;
-      color: yellow;
-
-      }
-
-    details[open] summary {
-      font-weight: bold;
-     }
-  
-    details div {
-      border: 2px solid black;
-      text-align: center;
-      padding: 8px;
-      height: 70px;
-      overflow: auto;
+      .btn:hover {
+        background-color: darkblue;
       }
     `;
   }
 
-  openChanged(e) {
-    console.log(e.newState);
-    if (e.newState === "open") {
-      this.fancy = true;
-    }
-    else {
-      this.fancy = false;
-    }
+  toggleFancy() {
+    this.fancy = !this.fancy;
   }
 
   render() {
     return html`
-    <div id = "cardlist">
-      <div class="card">
-        <h1 class="cardheader"><b>${this.title}</b></h1>
-          <img src=${this.image} alt=${this.title} />
-          <details ?open="${this.fancy}" @toggle="${this.openChanged}">
-            <summary>Description</summary>
-            <div>
-              <slot></slot>
-              <a href=${this.link} target="_blank">
-                <button class="btn"><em>Link for more info</em></button>
-              </a>
-            </div>
-          </details>
+      <div class="card ${this.fancy ? 'fancy' : ''}">
+        <h1 class="cardheader">${this.title}</h1>
+        <img src=${this.image} alt=${this.title} />
+        <details @toggle="${this.toggleFancy}">
+          <summary>More Info</summary>
+          <slot>Default description about the brand.</slot>
+          <br/>
+          <a href=${this.link} target="_blank">
+            <button class="btn">Visit</button>
+          </a>
+        </details>
       </div>
-    </div>`;
+    `;
   }
 
   static get properties() {
     return {
       title: { type: String },
       image: { type: String },
-      link: { type: String},
-      fancy: { type: Boolean, reflect: true }
+      link: { type: String },
+      fancy: { type: Boolean, reflect: true },
     };
   }
 }
 
 globalThis.customElements.define(MyCard.tag, MyCard);
+

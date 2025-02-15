@@ -4,10 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Boilerplate for polaris chip">
-  <base href="/">
-
-  <!-- THIS IS WHERE TO ADD STYLES FOR SLOTTED STUFF -->
+  <meta name="Description" content="My Card Web Component">
+  <title>My Card Demo</title>
   <style>
     :root,
     html,
@@ -16,95 +14,36 @@
       padding: 0;
       font-family: sans-serif;
       background-color: #ededed;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
     }
-    polaris-chip {
-      margin: 16px;
-      --polaris-chip-background-color: azure;
-    }
-    a {
-      margin: 16px;
-      color: red;
-      background-color: azure;
-      padding: 50px;
-    }
-    p {
-      color: yellow;
-        margin: 10px 25px 10px 25px;
-        font-family: "Times New Roman", Times, serif;
-    }
-
   </style>
-  <title>polaris-chip / my-card</title>
 </head>
 
 <body>
-  <h1>polaris-chip</h1>
-  <!-- this is going to do whatever the tag's defaults are -->
-  <polaris-chip title="News of Record" link="https://psu.edu/"></polaris-chip>
-  <polaris-chip title="Faculty and Staff"></polaris-chip>
-  <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
-  <polaris-chip title="Grants and donations"></polaris-chip>
-
-  <a href="https://psu.edu/" target="_blank">PSU</a>
-
-  <h1>my-card</h1>
-  
-  <my-card
-    title="Rick Deckard"
-    image="https://www.therpf.com/forums/attachments/12417640_945743055507970_4938982837811334232_n-jpgoh16c74547ea87a653458bf8972775256aoe57d3cc87-jpg.759686/"
-    link="https://bladerunner.fandom.com/wiki/Rick_Deckard">
-    <p>
-      Deckard was a Blade Runner in the Fourth Sector until the slaughter at the steel shop. Now, he just wants to put the past behind him, maybe even start over in the off-world colonies. But in this town, the past has a habit of catching up with you.
-    </p>
+  <my-card title="Volkswagen" image="https://logos-world.net/wp-content/uploads/2021/04/Volkswagen-Logo-2000-2012.png" link="https://www.vw.com/">
+    <p>Volkswagen is a German automobile manufacturer known for making fun small drivers cars like the Golf GTI and the Jetta GLI.</p>
   </my-card>
 
-  <my-card
-    title="Han Solo"
-    image="https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Han_Solo_depicted_in_promotional_image_for_Star_Wars_%281977%29.jpg/220px-Han_Solo_depicted_in_promotional_image_for_Star_Wars_%281977%29.jpg"
-    link="https://starwars.fandom.com/wiki/Han_Solo/Legends">
-    <p>
-      Cold blooded murderer for shooting <em>Greedo</em>.
-    </p>
-  </my-card>
-  
-  <my-card
-    title="Indiana Jones"
-    image="https://goldenglobes.com/wp-content/uploads/2023/10/01-harrison-ford-in-indiana-jones-and-the-raiders-of-the-lost-ark-1981-scaled.jpg?w=2000"
-    link="https://indianajones.fandom.com/wiki/Indiana_Jones">
-    <p>
-      Always escaped from every bad situation.
-    </p>
+  <my-card title="Audi" image="https://www.focus2move.com/wp-content/uploads/2014/12/audi-logo-white.jpg" link="https://www.audi.com/">
+    <p>Audi is a premium German car brand known for their Quattro all wheel drive systems and RS models.</p>
   </my-card>
 
-  <my-card
-    title="Branch Rickey"
-    image="https://wehco.media.clients.ellingtoncms.com/timesfreepress/img/photos/2013/04/11/BosemanRickey.jpg"
-    link="https://www.si.com/extra-mustard/2013/04/11/harrison-ford-discusses-playing-branch-rickey-in-42">
-    <p>
-      He did not care about Jackie Robinson's skin color. He just cared about the color of the uniform.
-    </p>
+  <my-card title="Lamborghini" image="https://wallpapercat.com/w/full/8/b/3/894016-3840x2160-desktop-4k-lamborghini-logo-background-image.jpg" link="https://www.lamborghini.com/">
+    <p>Lamborghini is an Italian sports car brand known for high-performance supercars.</p>
   </my-card>
 
-  <my-card
-    title="John Thornton"
-    image="https://www.maturetimes.co.uk/wp-content/uploads/2020/02/The-Call-of-the-Wild-2.jpg"
-    link="https://the-call-of-the-wild.fandom.com/wiki/John_Thornton_(2020_version)">
-    <p>
-      Thornton really loved his dog.
-    </p>
+  <my-card title="Land Rover" image="https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/LandRover.svg/2560px-LandRover.svg.png" link="https://www.landrover.com/">
+    <p>Land Rover specializes in luxury SUVs with off-road capabilities they are also well known for the classic Defender 90 and 110.</p>
   </my-card>
 
-  <my-card
-    title="James Marshall"
-    image="https://i0.wp.com/bamfstyle.com/wp-content/uploads/2013/02/af1-main1.jpg?resize=258%2C419"
-    link="https://hero.fandom.com/wiki/President_James_Marshall">
-    <p>
-      We need a president like him in real life.
-    </p>
+  <my-card title="Bugatti" image="https://www.supercars.net/blog/wp-content/uploads/2019/12/Bugatti-Logo.png" link="https://www.bugatti.com/">
+    <p>Bugatti is a high-performance car brand famous for speed and engineering excellence.</p>
   </my-card>
 
-  <!-- this is what is bringing in the definition for this tag -->
-  <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
 </body>
 
